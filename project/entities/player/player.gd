@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+export (PackedScene) var Bullet
+
 const GRAVITY = 33.5
 const FLOOR_NORMAL = Vector2(0, -1)
 const MAX_GRAVITY = GRAVITY * 30
@@ -35,9 +37,18 @@ func _physics_process(delta):
 	# apply gravity
 	if velocity.y < MAX_GRAVITY:
 		velocity.y += GRAVITY
-	
+
 	# finalize movement
 	move_and_slide(velocity, FLOOR_NORMAL)
 
+	# Shoot
+	if Input.is_action_just_pressed('ui_shoot'):
+		shoot()
+
 	if is_on_floor() or is_on_ceiling():
 		velocity.y = 0
+
+func shoot():
+	var b = Bullet.instance()
+	owner.add_child(b)
+	b.transform = $GunMuzzle.global_transform
