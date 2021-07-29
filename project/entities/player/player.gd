@@ -6,8 +6,8 @@ const GRAVITY = 33.5
 const FLOOR_NORMAL = Vector2(0, -1)
 const MAX_GRAVITY = GRAVITY * 30
 
-const MOVE_SPEED = 180
-const JUMP_FORCE = 450
+const MOVE_SPEED = 300
+const JUMP_FORCE = 600
 
 var facing = Vector2()
 var velocity = Vector2()
