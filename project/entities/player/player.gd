@@ -41,6 +41,10 @@ func _physics_process(delta):
 	# finalize movement
 	move_and_slide(velocity, FLOOR_NORMAL)
 
+	# Gun updates
+	$Gun/Muzzle.look_at(get_global_mouse_position())
+	update_sight()
+
 	# Shoot
 	if Input.is_action_just_pressed('ui_shoot'):
 		shoot()
@@ -51,4 +55,7 @@ func _physics_process(delta):
 func shoot():
 	var b = Bullet.instance()
 	owner.add_child(b)
-	b.transform = $GunMuzzle.global_transform
+	b.transform = $Gun/Muzzle.global_transform
+
+func update_sight():
+	$Gun/Sight.set_point_position(1, get_local_mouse_position())

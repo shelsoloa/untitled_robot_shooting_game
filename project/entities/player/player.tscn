@@ -18,5 +18,12 @@ shape = SubResource( 1 )
 position = Vector2( 7, 0 )
 texture = ExtResource( 1 )
 
-[node name="GunMuzzle" type="Position2D" parent="."]
-position = Vector2( 24.6144, -4.88508 )
+[node name="Gun" type="Node2D" parent="."]
+
+[node name="Muzzle" type="Position2D" parent="Gun"]
+position = Vector2( 24, -5 )
+
+[node name="Sight" type="Line2D" parent="Gun"]
+points = PoolVector2Array( 24, -5, 24, -5 )
+width = 1.0
+default_color = Color( 1, 0, 0, 1 )
