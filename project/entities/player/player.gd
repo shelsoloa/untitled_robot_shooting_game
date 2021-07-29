@@ -1,16 +1,11 @@
-extends KinematicBody2D
+class_name Player
+extends Actor
 
 export (PackedScene) var Bullet
-
-const GRAVITY = 33.5
-const FLOOR_NORMAL = Vector2(0, -1)
-const MAX_GRAVITY = GRAVITY * 30
 
 const MOVE_SPEED = 300
 const JUMP_FORCE = 600
 
-var facing = Vector2()
-var velocity = Vector2()
 
 func _physics_process(delta):
 	var keydown_left = Input.is_action_pressed('ui_left')
@@ -33,10 +28,6 @@ func _physics_process(delta):
 		velocity.y = -JUMP_FORCE
 	if keyreleased_jump and velocity.y < 0:
 		velocity.y = velocity.y / 3
-
-	# apply gravity
-	if velocity.y < MAX_GRAVITY:
-		velocity.y += GRAVITY
 
 	# finalize movement
 	move_and_slide(velocity, FLOOR_NORMAL)
