@@ -1,4 +1,4 @@
-class_name Zombie
+class_name Ghoul
 extends Actor
 
 const MAX_HEALTH = 3
