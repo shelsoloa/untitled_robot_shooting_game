@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://utility/weighted_directed_graph_2d/graph_node_2d.gd" type="Script" id=1]
+[ext_resource path="res://utility/weighted_directed_graph_2d/weighted_directed_graph_2d.tscn" type="PackedScene" id=2]
+[ext_resource path="res://utility/weighted_directed_graph_2d/graph_edge_2d.gd" type="Script" id=3]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+neighbour_path = NodePath("../n2")
+weight = 1
+
+[sub_resource type="Resource" id=2]
+script = ExtResource( 3 )
+neighbour_path = NodePath("../n3")
+weight = 1
+
+[sub_resource type="Resource" id=3]
+script = ExtResource( 3 )
+neighbour_path = NodePath("../n1")
+weight = 1
+
+[sub_resource type="Resource" id=4]
+script = ExtResource( 3 )
+neighbour_path = NodePath("../n3")
+weight = 1
+
+[sub_resource type="Resource" id=5]
+script = ExtResource( 3 )
+neighbour_path = NodePath("../n1")
+weight = 1
+
+[sub_resource type="Resource" id=6]
+script = ExtResource( 3 )
+neighbour_path = NodePath("../n2")
+weight = 3
+
+[node name="GraphTest" type="Node2D"]
+
+[node name="WeightedDirectedGraph2D" parent="." instance=ExtResource( 2 )]
+
+[node name="n1" type="Position2D" parent="WeightedDirectedGraph2D"]
+position = Vector2( 202, 266 )
+script = ExtResource( 1 )
+neighbours = [ SubResource( 1 ), SubResource( 2 ) ]
+
+[node name="n2" type="Position2D" parent="WeightedDirectedGraph2D"]
+position = Vector2( 714, 266 )
+script = ExtResource( 1 )
+color = Color( 0.74902, 0.737255, 0, 0.501961 )
+neighbours = [ SubResource( 3 ), SubResource( 4 ) ]
+
+[node name="n3" type="Position2D" parent="WeightedDirectedGraph2D"]
+position = Vector2( 650, 458 )
+script = ExtResource( 1 )
+color = Color( 0.74902, 0, 0.560784, 0.501961 )
+neighbours = [ SubResource( 5 ) ]
+
+[node name="n4" type="Position2D" parent="WeightedDirectedGraph2D"]
+position = Vector2( 714, 74 )
+script = ExtResource( 1 )
+color = Color( 0, 0.0627451, 0.74902, 0.501961 )
+neighbours = [ SubResource( 6 ) ]
