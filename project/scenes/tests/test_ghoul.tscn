@@ -8,9 +8,6 @@
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 264, 472 )
 
-[node name="Ghoul" parent="." instance=ExtResource( 1 )]
-position = Vector2( 800, 472 )
-
 [node name="Collider" type="StaticBody2D" parent="."]
 position = Vector2( 0, 512 )
 
@@ -19,3 +16,7 @@ polygon = PoolVector2Array( 0, 0, 0, 88, 960, 88, 960, 0 )
 
 [node name="Platform" type="Polygon2D" parent="Collider/CollisionPolygon2D"]
 polygon = PoolVector2Array( 0, 0, 0, 88, 960, 88, 960, 0 )
+
+[node name="Ghoul" parent="." instance=ExtResource( 1 )]
+position = Vector2( 728.85, 232.412 )
+draw_debug = true

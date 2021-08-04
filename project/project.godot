@@ -57,7 +57,7 @@ _global_script_class_icons={
 [application]
 
 config/name="shooter"
-run/main_scene="res://scenes/movement_test.tscn"
+run/main_scene="res://scenes/tests/test_movement.tscn"
 config/icon="res://icon.png"
 
 [display]

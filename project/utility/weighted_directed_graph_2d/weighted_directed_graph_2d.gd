@@ -10,10 +10,15 @@ export (Color) var color = Color(0.0, 0.75, 0.0, 0.5)
 var _graph_nodes = []
 
 
+func get_graph_nodes():
+	return _graph_nodes
+
+
 func _ready():
 	for child in get_children():
 		if child is GraphNode2D:
 			_graph_nodes.append(child)
+
 			if Engine.editor_hint:
 				child.connect("moved", self, "_on_node_moved")
 

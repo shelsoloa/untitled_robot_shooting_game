@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://entities/ghoul/ghoul.tscn" type="PackedScene" id=1]
+[ext_resource path="res://entities/player/player.tscn" type="PackedScene" id=2]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 104, 352 )
+
+[node name="Ghoul" parent="." instance=ExtResource( 1 )]
+position = Vector2( 496, 480 )
+
+[node name="Collider" type="StaticBody2D" parent="."]
+position = Vector2( 0, 512 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Collider"]
+position = Vector2( -64, -512 )
+polygon = PoolVector2Array( 704, 512, 704, 320, 928, 320, 928, 0, 960, 0, 960, 512 )
+
+[node name="CollisionPolygon2D5" type="Polygon2D" parent="Collider/CollisionPolygon2D4"]
+color = Color( 0.105882, 0.203922, 0.309804, 1 )
+polygon = PoolVector2Array( 704, 512, 704, 320, 928, 320, 928, 0, 960, 0, 960, 512 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Collider"]
+position = Vector2( -64, -512 )
+polygon = PoolVector2Array( 384, 384, 384, 320, 576, 320, 576, 384 )
+
+[node name="CollisionPolygon2D5" type="Polygon2D" parent="Collider/CollisionPolygon2D3"]
+color = Color( 0.105882, 0.203922, 0.309804, 1 )
+polygon = PoolVector2Array( 384, 384, 384, 320, 576, 320, 576, 384 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Collider"]
+polygon = PoolVector2Array( 0, 0, 0, 88, 960, 88, 960, 0 )
+
+[node name="Platform" type="Polygon2D" parent="Collider/CollisionPolygon2D"]
+color = Color( 0.105882, 0.203922, 0.309804, 1 )
+polygon = PoolVector2Array( 0, 0, 0, 88, 960, 88, 960, 0 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Collider"]
+polygon = PoolVector2Array( 0, 0, 0, -512, 32, -512, 32, -128, 192, -128, 320, 0 )
+
+[node name="CollisionPolygon2D5" type="Polygon2D" parent="Collider/CollisionPolygon2D2"]
+color = Color( 0.105882, 0.203922, 0.309804, 1 )
+polygon = PoolVector2Array( 0, 0, 0, -512, 32, -512, 32, -128, 192, -128, 320, 0 )

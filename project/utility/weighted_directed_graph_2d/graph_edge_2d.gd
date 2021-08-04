@@ -3,6 +3,13 @@ extends Resource
 
 export(NodePath) var neighbour_path
 export(int) var weight
+var from := GraphNode2D
+var to := GraphNode2D
+
+func _ready():
+	# from = owner
+	# to = get_node(neighbour_path)
+	pass
 
 func _get_configuration_warning():
 	if neighbour_path == null:
